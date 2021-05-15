@@ -1,0 +1,27 @@
+<form #editForm="ngForm" (ngSubmit)="onAdEdit(editForm.value)">
+    <div>
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" [ngModel]= adToEdit[0].title required>
+    </div>
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" [ngModel]= adToEdit[0].name required>
+    </div>
+    <div>
+        <label for="category">Category: </label>
+        <select name="category" id="category" [ngModel]= adToEdit[0].category >
+            <option  disabled>Select category</option>
+            <option *ngFor="let category of categories" >
+                {{category}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description"[ngModel]= adToEdit[0].description>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Update Advertisement</button> 
+    <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+
+</form>
